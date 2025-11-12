@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "536262087569",
+    "project_id": "greenisland-deliveryapp",
+    "storage_bucket": "greenisland-deliveryapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:536262087569:android:79a6a3a0673cdcb7370030",
+        "android_client_info": {
+          "package_name": "com.cyberpixel.greenislanddeliveryapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-mTwwYwDRulv1-bLAaToAtVr2Ru0vico"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

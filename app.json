@@ -1,4 +1,57 @@
 {
-  "name": "greenislandapp",
-  "displayName": "greenislandapp"
+  "expo": {
+    "name": "Delivery App",
+    "slug": "DeliveryApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#145827"
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      "@react-native-firebase/messaging",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(PRODUCT_NAME) to access camera."
+        }
+      ]
+    ],
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cyberpixel.greenislanddeliveryapp",
+      "buildNumber": "1.0",
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "This app requires access to your location to provide delivery services even when the app is in the background.",
+        "NSLocationWhenInUseUsageDescription": "This app requires access to your location to provide delivery services when the app is in use."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.cyberpixel.greenislanddeliveryapp",
+      "versionCode": 1,
+      "googleServicesFile": "./google-services.json"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {}
+  }
 }

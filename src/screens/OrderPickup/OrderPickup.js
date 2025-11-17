@@ -103,7 +103,7 @@ const OrderPickup = (props) => {
     var tableData = item?.products?.map((newItem) => [
       newItem?.product_id[1],
       newItem.product_uom_qty,
-      newItem.price_unit + " KWD",
+      newItem.price_unit + " AED",
       isScanned(newItem.p_id, newItem.quantity),
     ]);
   }
@@ -703,7 +703,18 @@ const OrderPickup = (props) => {
               </TouchableOpacity>
             ))}
           </View>
+            {
+          userdata?.role == "driver" &&
+          <View>
+              <Text style={OrderPickupStyles.pickupPointLabel}>Payment</Text>
+                          <Text style={OrderPickupStyles.pickupPointText}>
+                  {item?.payment_type}
+                </Text>
+            </View>
+        }
         </View>
+      
+        
 
         {/* table  */}
         <View style={styles.container}>

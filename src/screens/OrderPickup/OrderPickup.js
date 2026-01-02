@@ -46,7 +46,7 @@ const OrderPickup = (props) => {
   const [drivers, setDrivers] = useState([]);
   const [showOrderDelivery, setShowOrderDelivery] = useState(false);
   const [isZebraDevice, setIsZebraDevice] = useState(false);
-  console.log("ssssspropspropspropsprops", item);
+  console.log("ssssspropspropspropspropss", item?.payment_type == 'pending' ? "Cash" : "Card");
 
   const { id } = props.route.params;
   const { userdata } = props?.data;
@@ -200,7 +200,7 @@ const OrderPickup = (props) => {
     } else if (item?.google_maps_url) {
       const url = item?.google_maps_url;
       Linking.openURL(url).catch((error) => console.log("urlnotworking"));
-        Alert.alert("Error", "Unable to open the location. Please check the address.");
+      Alert.alert("Error", "Unable to open the location. Please check the address.");
     } else {
       console.log("Invalid address or coordinates not found.");
     }
@@ -559,9 +559,9 @@ const OrderPickup = (props) => {
       } else {
         return Alert.alert(
           "Not Matching, Readed Barcode: " +
-            data +
-            " and needed: " +
-            barcodeText
+          data +
+          " and needed: " +
+          barcodeText
         );
       }
     }
@@ -692,6 +692,20 @@ const OrderPickup = (props) => {
             </View>
           </TouchableOpacity>
 
+
+
+          <View style={{}}>
+            <Text style={OrderPickupStyles.pickupPointLabel}>
+              Payment type
+            </Text>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={OrderPickupStyles.pickupPointText}>
+                {item?.payment_type == 'pending' ? "Cash" : "Card"}
+              </Text>
+            </View>
+            <Spacing />
+          </View>
+
           <View style={{ marginTop: 0 }}>
             <Text style={OrderPickupStyles.pickupPointLabel}>Products</Text>
             {item?.products?.map((product) => (
@@ -703,18 +717,18 @@ const OrderPickup = (props) => {
               </TouchableOpacity>
             ))}
           </View>
-            {
-          userdata?.role == "driver" &&
-          <View>
+          {
+            userdata?.role == "driver" &&
+            <View>
               <Text style={OrderPickupStyles.pickupPointLabel}>Payment</Text>
-                          <Text style={OrderPickupStyles.pickupPointText}>
-                  {item?.payment_type}
-                </Text>
+              <Text style={OrderPickupStyles.pickupPointText}>
+                {item?.payment_type}
+              </Text>
             </View>
-        }
+          }
         </View>
-      
-        
+
+
 
         {/* table  */}
         <View style={styles.container}>
@@ -818,7 +832,7 @@ const OrderPickup = (props) => {
               OrderPickupStyles.flexRowAlCentJusSpBtn,
               OrderPickupStyles.widFull,
             ],
-            { marginBottom: 10, marginLeft: 10, marginRight: 10 })
+              { marginBottom: 10, marginLeft: 10, marginRight: 10 })
           }
         >
           {/* <TouchableOpacity style={OrderPickupStyles.notAcceptBtn}
@@ -847,7 +861,7 @@ const OrderPickup = (props) => {
                 title={"Reject Order"}
                 buttonStyle={
                   (OrderPickupStyles.AcceptbBtn,
-                  { width: "100%", marginTop: 10, backgroundColor: "black" })
+                    { width: "100%", marginTop: 10, backgroundColor: "black" })
                 }
                 onPress={() =>
                   processOrder(userdata?.role, "on_the_way_rejected")

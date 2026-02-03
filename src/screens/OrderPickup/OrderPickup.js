@@ -451,10 +451,12 @@ const OrderPickup = (props) => {
       return;
     }
 
-    if (item?.order_status == "confirmed" && scanned?.length == 0) {
+ if(!__DEV__){
+     if (item?.order_status == "confirmed" && scanned?.length == 0) {
       alert("Please Scan the Product");
       return;
     }
+ }
 
     let old_status = status;
 
@@ -644,10 +646,10 @@ const OrderPickup = (props) => {
             }}
           >
             {item?.order_status === "on_the_way"
-              ? `Assigned to ${item?.order_status?.driver?.name} (${item?.order_status?.driver?.id})`
+              ? `Assigned to ${item?.driver?.name} (${item?.driver?.id})`
               : item?.order_status}
             {item?.order_status === "on_the_way" &&
-              `\nContact: ${item?.order_status?.driver?.phone}`}
+              `\nContact: ${item?.driver?.phone}`}
           </Text>
 
           <Text style={{ color: "gray", marginBottom: 15 }}>

@@ -121,7 +121,7 @@ const Home = (props) => {
       }
 
       get_url = get_url + '&role=' + data?.userdata.role;
-      console.log('-=-=--=-=-', get_url)
+      console.log('-=-=ss--=-=-', get_url)
       const response = await fetch(get_url)
       const result = await response?.json()
 

@@ -74,8 +74,6 @@ export const flushCache = () => (dispatch) => {
 // export const fetchData = (status = 'confirmed') => (dispatch, getState) => {
 export const fetchData = (status,selectedAppName) => (dispatch, getState) => {
 
-
-  console.log('ssssssssffff',status, selectedAppName)
   try {
 
 
